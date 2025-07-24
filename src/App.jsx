@@ -6,7 +6,8 @@ import Sidebar from './components/Mainsidebar';
 import FoodPage from './pages/Foodmenu';
 import Navbar from './components/Navbar';
 import {Menu} from 'lucide-react'
-
+import Teacher from './pages/Teacher';
+import TeacherDetail from './pages/TeacherDetail';
 const App = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 const location = useLocation();
@@ -15,9 +16,7 @@ const location = useLocation();
   return (
     <div>
     {/* <Navbar/> */}
-   
       <div className="flex">
-        
  <div
         className={`${
           sidebarOpen ? 'block' : 'hidden'
@@ -33,9 +32,10 @@ const location = useLocation();
 
           <Routes>
             <Route path="/" element={<Dashboard setSidebarOpen={setSidebarOpen} />} />
-            {/* <Route path="/students" element={<Students />} />
-            <Route path="/teachers" element={<Teachers />} />
-            <Route path="/event" element={<Event />} />
+            {/* <Route path="/students" element={<Students />} /> */}
+            <Route path="/teachers" element={<Teacher />} />
+            <Route path="/teacher/:id/:name/:subject" element={<TeacherDetail/>} />
+            {/* <Route path="/event" element={<Event />} />
             <Route path="/finance" element={<Finance />} /> */}
             <Route path="/food" element={<FoodPage />} />
             {/* <Route path="/user" element={<User />} />
