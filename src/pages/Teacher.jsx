@@ -65,6 +65,7 @@ const Teacher = () => {
   ];
   return (
     <div className="w-full max-w-[1200px] mx-auto font-[Poppins]">
+      <Link to={'/TeacherForm'}>Check me</Link>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {data.map(({ id, name, subject }) => (
                <Link to={`/teacher/${id}/${name}/${subject}`} key={id}>
