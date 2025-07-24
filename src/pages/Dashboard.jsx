@@ -25,11 +25,11 @@ function App({setSidebarOpen}) {
 
   {/* Main Section */}
   <div className="flex-1 p-6 ">
-    <div className="max-w-7xl mx-auto">
+    <div className="max-w-7xl w-[800px] mx-auto">
 
       {/* Header */}
       <div className="flex items-center justify-between mb-8  lg:px-10 py-4">
-        {/* <h1 className="text-2xl font-bold text-gray-800">Dashboard</h1>*/}
+        <h1 className="text-2xl font-bold text-gray-800">Dashboard</h1>
         <div className="flex items-center space-x-4">
           <div className="relative">
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
