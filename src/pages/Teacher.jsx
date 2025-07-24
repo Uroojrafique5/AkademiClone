@@ -1,4 +1,3 @@
-
 import { Link } from "react-router-dom";
 
 const Teacher = () => {
@@ -66,29 +65,48 @@ const Teacher = () => {
   ];
   return (
     <div className="w-full max-w-[1200px] mx-auto font-[Poppins]">
-      <Link to={'/TeacherForm'}>Check me</Link>
+      <div className="w-full flex justify-end mb-4 gap-3">
+        <button className="w-[200px] h-14 border-2 border-[#4D44B5] rounded-[40px] flex justify-center items-center">
+          <div className="flex justify-evenly gap-3">
+            <h1 className="text-[#4D44B5] text-[18px] mt-[2px]">Newest</h1>
+            <img src="src/assets/drop.png" alt="downward" className="w-7 h-7" />
+          </div>
+        </button>
+        <Link to={"/TeacherForm"}>
+          <button className="w-[200px] h-14 border-2 bg-[#4D44B5] rounded-[40px] flex justify-center items-center">
+            <div className="flex justify-evenly gap-3">
+              <img
+                src="src/assets/plus.png"
+                alt="downward"
+                className="w-4 h-4 mt-[6px]"
+              />
+              <h1 className="text-white text-[18px]">New Teacher</h1>
+            </div>
+          </button>
+        </Link>
+      </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {data.map(({ id, name, subject }) => (
-               <Link to={`/teacher/${id}/${name}/${subject}`} key={id}>
-          <div
-            key={id}
-            className="relative w-full h-[350px] bg-white rounded-[20px] flex flex-col items-center p-6 shadow"
-          >
-            <img
-              src="src/assets/Vector.png"
-              alt="dot"
-              className="absolute top-4 right-4 w-[22px] h-[6px]"
-            />
-            <div className="w-[120px] h-[120px] rounded-full bg-[#C1BBEB]" />
-            <h1 className="text-[#303972] font-bold text-[24px] mt-6 text-center">
-              {name}
-            </h1>
-            <p className="text-[#A098AE] text-[18px]">{subject}</p>
-            <div className="w-24 h-10 mt-4 flex justify-between">
-              <img src="src/assets/Phone.png" alt="Phone" />
-              <img src="src/assets/Mail.png" alt="Mail" />
+          <Link to={`/teacher/${id}/${name}/${subject}`} key={id}>
+            <div
+              key={id}
+              className="relative w-full h-[350px] bg-white rounded-[20px] flex flex-col items-center p-6 shadow"
+            >
+              <img
+                src="src/assets/Vector.png"
+                alt="dot"
+                className="absolute top-4 right-4 w-[22px] h-[6px]"
+              />
+              <div className="w-[120px] h-[120px] rounded-full bg-[#C1BBEB]" />
+              <h1 className="text-[#303972] font-bold text-[24px] mt-6 text-center">
+                {name}
+              </h1>
+              <p className="text-[#A098AE] text-[18px]">{subject}</p>
+              <div className="w-24 h-10 mt-4 flex justify-between">
+                <img src="src/assets/Phone.png" alt="Phone" />
+                <img src="src/assets/Mail.png" alt="Mail" />
+              </div>
             </div>
-          </div>
           </Link>
         ))}
       </div>
