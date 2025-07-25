@@ -1,28 +1,33 @@
+
+
 import { useState } from "react";
 import { Routes, Route, Outlet, useLocation } from "react-router-dom";
+
 
 import Sidebar from "./components/Mainsidebar";
 import Navbar from "./components/Navbar";
 import Dashboard from "./pages/Dashboard";
 import FoodPage from "./pages/Foodmenu";
-import StudentsList from "./pages/Students/StudentsList";
-import AddStudent from "./pages/Students/AddStudent";
-import StudentDetails from "./pages/Students/StudentDetails";
 import Teacher from "./pages/Teacher";
 import TeacherDetail from "./pages/TeacherDetail";
 import TeacherForm from "./pages/TeacherForm";
+
+// IMPORTS FROM `main` BRANCH
+import StudentsList from "./pages/Students/StudentsList";
+import AddStudent from "./pages/Students/AddStudent";
+import StudentDetails from "./pages/Students/StudentDetails";
 import LatestActivity from "./pages/LatestActivity";
 import Event from "./pages/Event";
 import { Finance } from "./pages/Finance";
 import Chat from "./pages/Chat";
 
-// KEPT: Your superior Layout component structure
+import FoodDetail from "./pages/FoodDetail";
+import User from "./pages/User";
+
+
+
 const Layout = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const location = useLocation();
-
-  // Conditionally hide the Navbar if needed
-  const isNavbarHidden = location.pathname === "/";
 
   return (
     <div className="flex">
@@ -42,40 +47,49 @@ const Layout = () => {
 
       {/* Main Content Area - This part contains the Outlet */}
       <main className="flex-1 bg-[#F3F4FF] min-h-screen">
-        {/* Navbar is rendered here, outside the Outlet */}
-        {!isNavbarHidden && <Navbar setSidebarOpen={setSidebarOpen} />}
+        {/* Navbar is rendered here for all child pages */}
+        <Navbar setSidebarOpen={setSidebarOpen} />
 
-        {/* Child routes will be rendered here */}
+        {/* Child routes defined below will be rendered here inside the <Outlet /> */}
         <Outlet />
       </main>
     </div>
   );
 };
 
+
+// The App component now only handles routing logic.
 function App() {
   return (
     <Routes>
-      {/* Parent route uses your Layout component */}
+      {/* Parent route uses our Layout component. All children will have the sidebar/navbar. */}
       <Route path="/" element={<Layout />}>
-        {/* These child routes will be rendered inside the <Outlet /> */}
+        {/* Child routes are rendered inside the <Outlet /> */}
         <Route index element={<Dashboard />} />
 
-        {/* YOUR student routes */}
+        {/* Student routes from `main` */}
         <Route path="students" element={<StudentsList />} />
         <Route path="students/add" element={<AddStudent />} />
         <Route path="students/:studentId" element={<StudentDetails />} />
 
-        {/* ADDED: Their teacher routes */}
+        {/* Teacher routes (combined from both branches) */}
         <Route path="teachers" element={<Teacher />} />
         <Route path="teacher/:id/:name/:subject" element={<TeacherDetail />} />
         <Route path="teacherform" element={<TeacherForm />} />
 
-        {/* ADDED: Their other routes */}
+        {/* Other routes from `main` */}
         <Route path="event" element={<Event />} />
         <Route path="finance" element={<Finance />} />
         <Route path="chat" element={<Chat />} />
-        <Route path="food" element={<FoodPage />} />
         <Route path="latestactivity" element={<LatestActivity />} />
+        
+        {/* Food routes (combined from both branches) */}
+        <Route path="food" element={<FoodPage />} />
+        
+        {/* --- ADDED: UNIQUE ROUTES FROM YOUR `HEAD` BRANCH --- */}
+        <Route path="fooddetail" element={<FoodDetail />} />
+        <Route path="user" element={<User />} />
+
       </Route>
     </Routes>
   );
