@@ -19,7 +19,7 @@ const menuItems = [
   { name: 'Food', icon: <Utensils />, path: '/food' },
   { name: 'User', icon: <User />, path: '/user' },
   { name: 'Chat', icon: <MessageSquare />, path: '/chat' },
-  { name: 'Lastest Activity', icon: <Activity />, path: '/activity' },
+  { name: 'Lastest Activity', icon: <Activity />, path: '/LatestActivity' },
 ];
 
 
