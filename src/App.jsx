@@ -87,7 +87,7 @@ function App() {
         <Route path="food" element={<FoodPage />} />
         
         {/* --- ADDED: UNIQUE ROUTES FROM YOUR `HEAD` BRANCH --- */}
-        <Route path="fooddetail" element={<FoodDetail />} />
+        <Route path="FoodDetail/:name" element={<FoodDetail />} />
         <Route path="user" element={<User />} />
 
       </Route>

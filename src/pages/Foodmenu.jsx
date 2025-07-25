@@ -2,8 +2,8 @@
 
 import React, { useState } from 'react';
 import { Star, BarChart3, ArrowUpRight, MoreVertical,ArrowRight,ArrowLeft,Search } from 'lucide-react';
-import Navbar from '../components/Navbar';
- 
+import { Link } from 'react-router-dom';
+
 
 const foodItems = [
   { id: 1, title: 'Beef Steak with Fried Potato', category: 'Lunch', rating: 4.9 },
@@ -51,7 +51,8 @@ const Foodmenu = () => {
         {/* Menu list */}
         <div className="space-y-4">
           {filteredItems.map((item) => (
-            <div key={item.id} className="flex items-center bg-[#f4f0fe] rounded-lg p-4">
+           <Link to={`/FoodDetail/${item.title}`} key={item.id}>
+            <div  className="flex items-center bg-[#f4f0fe] rounded-lg p-4">
               {/* Image placeholder */}
               <div className="w-14 h-14 rounded-md bg-purple-200 mr-4" />
 
@@ -108,6 +109,7 @@ const Foodmenu = () => {
                 <MoreVertical className="text-gray-400 cursor-pointer w-5 h-5" />
               </div>
             </div>
+            </Link>
           ))}
         </div>
 

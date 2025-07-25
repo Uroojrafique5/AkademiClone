@@ -1,4 +1,5 @@
 "use client"
+import { useParams } from "react-router-dom";
 
 import { Star, MoreHorizontal } from "lucide-react"
 
@@ -43,7 +44,7 @@ export default function FoodDetail() {
       text: "Sed eligendi facere repellendus. Ipsam ipsam incidunt minima harum tenetur.",
     },
   ]
-
+const { name } = useParams()
   return (
     <div className="min-h-screen p-4 lg:p-6 font-[Poppins]">
       <div className="max-w-7xl mx-auto grid grid-cols-1 xl:grid-cols-3 gap-6">
@@ -56,7 +57,7 @@ export default function FoodDetail() {
               <div className="w-full max-w-[361px] h-[240px] lg:h-[240px] bg-[#C1BBEB] rounded-2xl mx-auto lg:mx-0"></div>
               <div className="space-y-4">
                 <div>
-                  <h1 className="text-xl lg:text-2xl font-bold text-[#303972] mb-3">Beef Steak with Fried Potato</h1>
+                  <h1 className="text-xl lg:text-2xl font-bold text-[#303972] mb-3">{name}</h1>
                   <span className="bg-[#4D44B5] w-32 h-10 text-white px-4 py-2 rounded-full text-sm font-medium flex justify-center items-center">
                     Lunch
                   </span>

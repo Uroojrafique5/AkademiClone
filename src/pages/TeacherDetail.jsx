@@ -4,7 +4,7 @@ import { Calendar, Clock, Mail, MapPin, Phone } from "lucide-react";
 import { useParams } from "react-router-dom";
 import Image from "../assets/cover.png";
 const TeacherDetail = () => {
-  const { id , name  , subject } = useParams();
+  const {  name  , subject } = useParams();
 
   return (
     <div className="h-screen p-4 md:p-6 font-[Poppins]">
