@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Dashboard from "../src/pages/Dashboard";
 import { useLocation } from "react-router-dom";
-import {  Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Sidebar from "./components/Mainsidebar";
 import FoodPage from "./pages/Foodmenu";
 import Navbar from "./components/Navbar";
@@ -9,6 +9,9 @@ import Teacher from "./pages/Teacher";
 import TeacherDetail from "./pages/TeacherDetail";
 import TeacherForm from "./pages/TeacherForm";
 import LatestActivity from "./pages/LatestActivity";
+import Event from "./pages/Event";
+import { Finance } from "./pages/Finance";
+import Chat from "./pages/Chat";
 
 const App = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -41,15 +44,28 @@ const App = () => {
               path="/teacher/:id/:name/:subject"
               element={<TeacherDetail />}
             />
-            <Route path="/TeacherForm" element={<TeacherForm />}/>
-            {/* <Route path="/event" element={<Event />} />
-            <Route path="/finance" element={<Finance />} /> */}
+            <Route path="/TeacherForm" element={<TeacherForm />} />
+            <Route
+              path="/event"
+              element={
+                <Event
+                  setSidebarOpen={setSidebarOpen}
+                  sidebarOpen={sidebarOpen}
+                />
+              }
+            />
+            <Route
+              path="/finance"
+              element={<Finance setSidebarOpen={setSidebarOpen} />}
+            />
+            <Route
+              path="/chat"
+              element={<Chat setSidebarOpen={setSidebarOpen} />}
+            />
             <Route path="/food" element={<FoodPage />} />
-            <Route path="/LatestActivity" element={<LatestActivity />} /> 
+            <Route path="/LatestActivity" element={<LatestActivity />} />
             {/* <Route path="/user" element={<User />} />
             <Route path="/chat" element={<Chat />} />*/}
-            
-          
           </Routes>
         </main>
       </div>
@@ -58,4 +74,3 @@ const App = () => {
 };
 
 export default App;
-
