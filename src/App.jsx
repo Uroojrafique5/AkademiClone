@@ -8,6 +8,8 @@ import Navbar from "./components/Navbar";
 import Teacher from "./pages/Teacher";
 import TeacherDetail from "./pages/TeacherDetail";
 import TeacherForm from "./pages/TeacherForm";
+import FoodDetail from "./pages/FoodDetail";
+import User from "./pages/User";
 const App = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const location = useLocation();
@@ -39,12 +41,13 @@ const App = () => {
               path="/teacher/:id/:name/:subject"
               element={<TeacherDetail />}
             />
+            <Route path="/FoodDetail" element={<FoodDetail/>}/>
             <Route path="/TeacherForm" element={<TeacherForm />}/>
             {/* <Route path="/event" element={<Event />} />
             <Route path="/finance" element={<Finance />} /> */}
             <Route path="/food" element={<FoodPage />} />
-            {/* <Route path="/user" element={<User />} />
-            <Route path="/chat" element={<Chat />} />
+            <Route path="/user" element={<User />} />
+            {/* <Route path="/chat" element={<Chat />} />
             <Route path="/activity" element={<Activity />} /> */}
           </Routes>
         </main>
